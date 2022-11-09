@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aula Lógica de Programação</title>
+    </head>
+    <body>
+        <h1>Lógica de Programação - Try Catch</h1>
+    </body>
+    <script>
+        let professor = '{"nome": "Roque Fernando", "dataNascimento": 1980}'
+        try{
+            let docente=JSON.parse(professor)
+        } catch(err){
+            console.log(err.message);
+        }
+
+        let a = 25
+        try{
+            if(typeof(a) !== "number") throw "Isso não parece um número"
+            if(a > 20) throw "Esse número é muito grande"
+        }catch(err){
+            console.log(err);
+        }
+
+        function controlException(msg){
+            this.msg = msg
+            this.info = "Validação :"
+        }
+
+        function mesAtual(m){
+            m = m-1
+            let meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+            if(meses[m] !== undefined){
+                return meses[m]
+            }else{
+                throw new controlException("Verificando entrada de dados")
+            }
+        }
+
+        let mes = 11
+        let nomeMes
+
+        try {
+            nomeMes = mesAtual(mes)
+        } catch (err) {
+            nomeMes = "Mês inexistente"
+            console.log(err.info, err.msg)
+        }
+        console.log(nomeMes)
+    </script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01</title>
+</head>
+<body>
+    <h1>Exercício 01</h1>
+</body>
+<script>
+    var nome = 'Elvis Presley'
+    let produto = 'Geladeira'
+    const desconto = 10
+    console.log('Testando JS')
+    // if(nome === 'Elvis Presley'){
+    //     console.log('Olá Elvis')
+    // } else {
+    //     console.log('Você não é Elvis')
+    // }
+    nome === 'Elvis Presley' ? console.log('Olá Elvis') : console.log('Você não é Elvis')
+
+    let nivel = 0
+    let perfil
+    switch(nivel){
+        case 0:
+            perfil = 'Básico'
+            break
+        case 1:
+            perfil = 'Intermediário'
+            break
+        case 2:
+            perfil = 'Avançado'
+            break
+        default:
+            perfil = 'Perfil Inexistente'
+    }
+    console.log(` Nível ${nivel} : ${perfil}`)
+</script>
+</html>

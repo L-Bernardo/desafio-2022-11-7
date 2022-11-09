@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aula Lógica de Programação</title>
+    </head>
+    <body>
+        <h1>Lógica de Programação - JSON</h1>
+    </body>
+    <script>
+        let info = '{"produto":"spagheti", "preço":42}'
+        console.log(typeof(info))
+        let infoJson = JSON.parse(info)
+        console.log(typeof(infoJson))
+        console.log(infoJson)
+
+        let indices='[1,4,8,12]'
+        let indicesJson = JSON.parse(indices)
+        console.log(indicesJson)
+
+        let empresa = {nome: "Nosso Restaurante", fundacao:1980, filial:2, regiao:"Leste"}
+        let infoEmpresa = JSON.parse(JSON.stringify(empresa, ['fundacao', 'filial']))
+        console.log(infoEmpresa)
+        console.log(typeof(infoEmpresa))
+    </script>
+</html>
