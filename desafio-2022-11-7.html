@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>Desafio de Lógica 7/11/2022</h1>
+</body>
+<script>
+    //- crie um array dinâmico com três posições [2,1,2]
+    let arr = [2,1,2]
+
+    //- crie uma iteração que retorne números aleatórios entre 1 e 3
+        //-a cada retorno, altere o valor do array respectivamente
+        /*for(let k=0; k<3; k++){
+            let numeroAleatorio = parseInt(Math.random() * 3) + 1
+            arr[k] == numeroAleatorio
+        }*/
+
+    //- utilize as linhas já codificadas e insira em uma função
+    /*function iterate(){
+        for(let k=0; k<3; k++){
+            let numeroAleatorio = parseInt(Math.random() * 3) + 1
+            arr[k] == numeroAleatorio1
+    }*/
+
+    //- crie uma verificação que identifica se os números do array são iguais
+    //- Se sim: escreva 'Porta 1: aberta'
+    //- Se não: escreva 'Tente de novo!'
+    /*function test(arr){
+        if(arr[0] == arr[1]){
+            if(arr[0] == arr[2]){
+                return "Porta 1: aberta"
+            }
+        }
+        return "Tente de novo!"
+    }*/
+
+    //- crie uma variável de controle para acumular a quantidade de vezes que os números se repetem
+    let x = 1
+
+    function test(arr){
+        if(arr[0] == arr[1]){
+            if(arr[0] == arr[2]){
+                return `Porta ${x}: aberta`
+            }
+        }
+        return "Tente de novo!"
+    }
+
+    //- crie uma variável que armazene o valor do último sorteio
+    let sorteioAnterior = [0, 0, 0]
+
+    function iterate(){
+        for(let k=0; k<3; k++){
+            sorteioAnterior[k] = arr[k]
+            let numeroAleatorio = parseInt(Math.random() * 3) + 1
+            arr[k] = numeroAleatorio
+        }
+    }
+
+    //- compare a valor do último sorteio com o valor do sorteio atual
+    //-- Se os valores forem iguais: escreva 'Porta (x)' : aberta
+    //-- Se os valores forem diferentes:
+    //      escreva 'Tente de novo' (Com a exceção do resultado ser de números iguais)
+    function compare(arr, sorteioAnterior){
+        if(arr[0] == sorteioAnterior[0]
+        && arr[1] == sorteioAnterior[1]
+        && arr[2] == sorteioAnterior[2]){
+            return `'Porta ${x}' : aberta`
+        }else{
+            if(test(arr) !=`Porta ${x}: aberta`){
+                return 'Tente de novo'
+            }
+        }
+    }
+
+    //As portas serão abertas quando:
+    //  - os números do array forem iguais
+    //  - a sequência de números do array for igual a sequência de númeroso do último sorteio
+
+    //Fim do jogo acontece quando a terceira porta for aberta.
+    do{
+        iterate()
+        console.log(sorteioAnterior)
+        console.log(arr)
+        console.log(test(arr))
+        console.log(compare(arr, sorteioAnterior))
+        if(test(arr) ==`Porta ${x}: aberta`) x++
+        if(compare(arr, sorteioAnterior) == `'Porta ${x}' : aberta`) x++
+    }while(x<=3)
+    console.log("Sucesso")
+</script>
+</html>
